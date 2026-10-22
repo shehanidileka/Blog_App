@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminActivityController;
+use App\Http\Controllers\Admin\AdminApiTokenController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminMailSettingsController;
@@ -122,5 +123,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         Route::get('/settings/mail', [AdminMailSettingsController::class, 'edit'])->name('settings.mail');
         Route::put('/settings/mail', [AdminMailSettingsController::class, 'update'])->name('settings.mail.update');
         Route::post('/settings/mail/test', [AdminMailSettingsController::class, 'test'])->name('settings.mail.test');
+
+        Route::get('/api-tokens', [AdminApiTokenController::class, 'index'])->name('api-tokens.index');
+        Route::post('/api-tokens', [AdminApiTokenController::class, 'store'])->name('api-tokens.store');
+        Route::delete('/api-tokens/{id}', [AdminApiTokenController::class, 'destroy'])->name('api-tokens.destroy');
     });
 });

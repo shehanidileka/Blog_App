@@ -45,6 +45,7 @@
         @endcan
         @can('settings.manage')
             <a class="side-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}" href="{{ route('admin.settings.mail') }}"><i class="bi bi-envelope-at"></i>Mail Settings</a>
+            <a class="side-link {{ request()->routeIs('admin.api-tokens.*') ? 'active' : '' }}" href="{{ route('admin.api-tokens.index') }}"><i class="bi bi-braces"></i>API Tokens</a>
         @endcan
 
         <div class="side-label">Account</div>
